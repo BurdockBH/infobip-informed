@@ -16,7 +16,6 @@ const Item = styled(Paper)(({ theme }) => ({
 interface report {
   title: string;
   description: number;
-  // 👈️ for demo purposes
 }
 
 export default function BasicGrid() {
