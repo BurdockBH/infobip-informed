@@ -31,6 +31,9 @@ export default function MainNavBar() {
             color="inherit"
             aria-label="menu"
             sx={{ margin: "auto", width: "50px" }}
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+            }}
           >
             <img
               src={logo}

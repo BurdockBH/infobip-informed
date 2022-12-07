@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 import { useState } from "react";
 import ReportCard from "./Report";
 
-export default function BasicGrid() {
+export default function News() {
   const [content, setContent] = useState([
     {
       title: "test",

@@ -3,7 +3,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import BasicGrid from "./Grid";
+import NewsGrid from "./NewsGrid";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -57,7 +57,7 @@ export default function BasicTabs() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <BasicGrid />
+        <NewsGrid />
       </TabPanel>
     </Box>
   );
