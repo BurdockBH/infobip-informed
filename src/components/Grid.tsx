@@ -15,47 +15,41 @@ const Item = styled(Paper)(({ theme }) => ({
 
 interface report {
   title: string;
-  description: number;
-  // 👈️ for demo purposes
+  description: string;
 }
 
 export default function BasicGrid() {
-  const [content, setContent] = useState({});
-
-  const handleContent = (props: report) => {
-    setContent((content) => ({
-      title: props.title,
-      description: props.description,
-    }));
-  };
+  const [content, setContent] = useState([
+    {
+      title: "test",
+      description: "asdf",
+    },
+    {
+      title: "test",
+      description: "asdf",
+    },
+    {
+      title: "test",
+      description: "asdf",
+    },
+    {
+      title: "test",
+      description: "asdf",
+    },
+    {
+      title: "test",
+      description: "asdf",
+    },
+  ]);
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <Item>xs=3</Item>
-        </Grid>
-        <Grid item xs={3}>
-          <Item>xs=3</Item>
-        </Grid>
-        <Grid item xs={3}>
-          <Item>xs=3</Item>
-        </Grid>
-        <Grid item xs={3}>
-          <Item>xs=3</Item>
-        </Grid>
-        <Grid item xs={3}>
-          <Item>xs=3</Item>
-        </Grid>
-        <Grid item xs={4}>
-          <Item>xs=4</Item>
-        </Grid>
-        <Grid item xs={4}>
-          <Item>xs=4</Item>
-        </Grid>
-        <Grid item xs={4}>
-          <Item>xs=4</Item>
-        </Grid>
+        {content.map((report, index) => (
+          <Grid item xs={3} key={index}>
+            {report.title}
+          </Grid>
+        ))}
       </Grid>
     </Box>
   );
