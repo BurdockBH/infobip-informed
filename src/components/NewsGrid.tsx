@@ -2,45 +2,23 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { useState } from "react";
-import ReportCard from "./Report";
+import Article from "./Article";
+import { DUMMY, DUMMY_HEADER } from "../const/const";
 
 export default function News() {
-  const [content, setContent] = useState([
-    {
-      title: "test",
-      description: "asdf",
-    },
-    {
-      title: "test2",
-      description: "asdf",
-    },
-    {
-      title: "test3",
-      description: "asdf",
-    },
-    {
-      title: "test4",
-      description: "asdf",
-    },
-    {
-      title: "test",
-      description: "asdf",
-    },
-  ]);
-  const [headContent, setHeadContent] = useState({
-    title: "Head title",
-    description: "Hihi hoho",
-  });
+  const [content, setContent] = useState(DUMMY);
+  const [headContent, setHeadContent] = useState(DUMMY_HEADER);
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Grid item xs={12}>
-          <ReportCard
+          <Article
             width={"50%"}
             title={headContent.title}
             description={headContent.description}
             position={"auto"}
+            id={"head-article"}
             image={
               "https://thumbs.dreamstime.com/b/chalk-board-sketch-loudspeaker-phrase-important-news-144457132.jpg"
             }
@@ -48,9 +26,9 @@ export default function News() {
         </Grid>
         {content.map((report, index) => (
           <Grid item xs={3} key={index}>
-            <ReportCard
+            <Article
               title={report.title}
-              description={report.description}
+              id={report.id}
               image={
                 "https://c1.wallpaperflare.com/preview/554/370/505/bird-bluebird-bird-png-nature-perched-spring.jpg"
               }
