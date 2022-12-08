@@ -1,13 +1,21 @@
 import React from "react";
 import "./App.css";
-import MainNavBar from "./components/NavBar";
-import TabPanel from "./components/Tabs";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Landing from "./Pages/LandingPage";
+import ArticlePage from "./Pages/ArticlePage";
+import HeadArticle from "./Pages/HeadArticlePage";
+
 
 function App() {
   return (
     <div className="App">
-      <MainNavBar />
-      <TabPanel />
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Landing />}/>
+                <Route path="/article/:id" element={<ArticlePage />} />
+                <Route path="/article/head-article" element={<HeadArticle />} />
+            </Routes>
+        </BrowserRouter>
     </div>
   );
 }

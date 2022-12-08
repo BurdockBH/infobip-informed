@@ -6,11 +6,11 @@ import logo from "../logos/logo.png";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@mui/material";
 import { IconButton } from "@mui/material";
+import {Link} from "react-router-dom";
 
 const theme = createTheme({
   palette: {
     primary: {
-      // light: will be calculated from palette.primary.main,
       main: "#ff4400",
     },
   },
@@ -31,6 +31,7 @@ export default function MainNavBar() {
             color="inherit"
             aria-label="menu"
             sx={{ margin: "auto", width: "50px" }}
+            component={Link} to="/"
             onClick={() => {
               window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
             }}
@@ -41,7 +42,10 @@ export default function MainNavBar() {
               alt="infobip_logo"
             ></img>
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6"  sx={{ flexGrow: 1, textDecoration:"none",color:"white" }} component={Link} to="/"
+                      onClick={() => {
+                        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                      }}>
             &nbsp;Informed - Infobip News
           </Typography>
           <p>{date.toDateString()}</p>
