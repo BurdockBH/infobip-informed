@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import MainNavBar from "../components/NavBar";
 import { useParams } from "react-router-dom";
 import Footer from "../components/Footer";
@@ -6,8 +6,20 @@ import CardMedia from "@mui/material/CardMedia";
 import { DUMMY, DUMMY_TEXT } from "../const/const";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
+import CommentsList from "../components/CommentsList";
+import AddComment from "../components/AddComment";
 
 function ArticlePage() {
+  const [comments, setComments] = useState<any>([
+    "sadasda",
+    "asdaad",
+    "hihohoho",
+  ]);
+
+  const handleComments = (props: string) => {
+    setComments([...comments, props]);
+  };
+
   const { id } = useParams();
   const content = DUMMY.find((item) => item.id.toString() == id); //It will be used
   return (
@@ -40,6 +52,8 @@ function ArticlePage() {
       </Typography>
       <br />
       <br />
+      <AddComment handleComments={handleComments} />
+      <CommentsList comments={comments} />
       <Footer />
     </div>
   );
