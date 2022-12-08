@@ -2,8 +2,10 @@ import React from "react";
 import MainNavBar from "../components/NavBar";
 import { useParams } from "react-router-dom";
 import Footer from "../components/Footer";
-import Box from "@mui/material/Box";
-import { DUMMY } from "../const/const";
+import CardMedia from "@mui/material/CardMedia";
+import { DUMMY, DUMMY_TEXT } from "../const/const";
+import Card from "@mui/material/Card";
+import Typography from "@mui/material/Typography";
 
 function ArticlePage() {
   const { id } = useParams();
@@ -11,15 +13,41 @@ function ArticlePage() {
   return (
     <div className="App">
       <MainNavBar />
-      <Box
-        component="img"
-        sx={{
-          height: "50%",
-          width: "100%",
-        }}
-        alt="News"
-        src="https://c1.wallpaperflare.com/preview/554/370/505/bird-bluebird-bird-png-nature-perched-spring.jpg"
-      />
+      <Card>
+        <div style={{ position: "relative" }}>
+          <CardMedia
+            height="350"
+            component="img"
+            image={
+              "https://www.lighthouselabs.ca/uploads/post/open_graph_image/408/Person-Coding-On-Computer.jpg"
+            }
+            alt="News"
+            sx={{
+              "object-position": "top",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              color: "white",
+              top: 170,
+              left: "35%",
+              transform: "translateX(-50%)",
+            }}
+          >
+            <Typography variant="h1">This just in</Typography>
+          </div>
+        </div>
+      </Card>
+      <br />
+      <Typography width="70%" sx={{ margin: "auto" }}>
+        {DUMMY_TEXT + DUMMY_TEXT}
+        <br />
+        <br />
+        {DUMMY_TEXT + DUMMY_TEXT}
+      </Typography>
+      <br />
+      <br />
       <Footer />
     </div>
   );
