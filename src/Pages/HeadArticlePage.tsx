@@ -12,7 +12,7 @@ function HeadArticlePage() {
     <div className="App">
       <MainNavBar />
       <Card>
-        <div style={{ position: "relative" }}>
+        <div>
           <CardMedia
             height="350"
             component="img"
@@ -24,15 +24,7 @@ function HeadArticlePage() {
               "object-position": "top",
             }}
           />
-          <div
-            style={{
-              position: "absolute",
-              color: "white",
-              top: 170,
-              left: "35%",
-              transform: "translateX(-50%)",
-            }}
-          >
+          <div className="article-title">
             <Typography variant="h1">This just in</Typography>
           </div>
         </div>

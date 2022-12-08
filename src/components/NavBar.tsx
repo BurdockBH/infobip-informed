@@ -29,11 +29,7 @@ export default function MainNavBar() {
               window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
             }}
           >
-            <img
-              src={logo}
-              style={{ width: "100%", height: "100%" }}
-              alt="infobip_logo"
-            ></img>
+            <img className="nav-img" src={logo} alt="infobip_logo"></img>
           </IconButton>
           <Typography
             variant="h6"
