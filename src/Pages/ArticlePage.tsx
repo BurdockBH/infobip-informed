@@ -2,17 +2,30 @@ import React from "react";
 import MainNavBar from "../components/NavBar";
 import {useParams} from "react-router-dom";
 import Footer from "../components/Footer";
-import dummy from "../components/Dummy";
-import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import {DUMMY} from "../const/const";
+
+
+
+
 
 
 function ArticlePage() {
     const { id } = useParams()
-    const content = dummy.find(item => item.id.toString() == id);
+    const content = DUMMY.find(item => item.id.toString() == id);
     return (
         <div className="App">
             <MainNavBar />
-            <Typography>{content?.description}</Typography>
+            <Box
+                component="img"
+                sx={{
+                    height: "50%",
+                    width: "100%",
+
+                }}
+                alt="The house from the offer."
+                src="https://c1.wallpaperflare.com/preview/554/370/505/bird-bluebird-bird-png-nature-perched-spring.jpg"
+            />
             <Footer />
         </div>
     );

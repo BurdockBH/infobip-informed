@@ -3,13 +3,12 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { useState } from "react";
 import Article from "./Article";
-import dummy from "./Dummy";
-import dummyHeader from "./DummyHeader";
+import {DUMMY, DUMMY_HEADER} from "../const/const";
 
 
 export default function News() {
-  const [content, setContent] = useState(dummy);
-  const [headContent, setHeadContent] = useState(dummyHeader);
+  const [content, setContent] = useState(DUMMY);
+  const [headContent, setHeadContent] = useState(DUMMY_HEADER);
 
   return (
     <Box sx={{ flexGrow: 1 }}>

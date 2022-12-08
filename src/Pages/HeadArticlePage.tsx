@@ -3,13 +3,14 @@ import MainNavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 
 import Typography from "@mui/material/Typography";
-import dummyHeader from "../components/DummyHeader";
+import {DUMMY_HEADER} from "../const/const";
+
 
 function HeadArticlePage() {
     return (
         <div className="App">
             <MainNavBar />
-            <Typography>{dummyHeader?.description}</Typography>
+            <Typography>{DUMMY_HEADER.description}</Typography>
             <Footer />
         </div>
     );

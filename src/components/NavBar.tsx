@@ -3,23 +3,17 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import logo from "../logos/logo.png";
-import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@mui/material";
 import { IconButton } from "@mui/material";
 import {Link} from "react-router-dom";
+import {THEME} from "../const/const";
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#ff4400",
-    },
-  },
-});
+
 
 export default function MainNavBar() {
   const date = new Date();
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={THEME}>
       <AppBar
         position="sticky"
         sx={{ height: "50px", "justify-content": "center" }}

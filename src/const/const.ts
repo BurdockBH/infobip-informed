@@ -1,4 +1,13 @@
-const dummy = [ {
+import {createTheme} from "@mui/material/styles";
+
+export const THEME = createTheme({
+    palette: {
+        primary: {
+            main: "#ff4400",
+        },
+    },
+});
+export const DUMMY = [ {
     id:0,
     title: "test",
     description: "asdf",
@@ -24,6 +33,9 @@ const dummy = [ {
         description: "text4",
     },]
 
+export const DUMMY_HEADER = {
+    id:"head",
+    title: "test",
+    description: "text4",
+}
 
-
-export default dummy;
