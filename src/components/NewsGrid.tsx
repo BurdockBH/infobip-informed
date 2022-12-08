@@ -3,8 +3,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { useState } from "react";
 import Article from "./Article";
-import {DUMMY, DUMMY_HEADER} from "../const/const";
-
+import { DUMMY, DUMMY_HEADER } from "../const/const";
 
 export default function News() {
   const [content, setContent] = useState(DUMMY);

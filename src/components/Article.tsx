@@ -4,7 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Article({
   image,
@@ -12,7 +12,7 @@ export default function Article({
   description,
   width,
   position,
-  id
+  id,
 }: any) {
   return (
     <Card sx={{ width: `${width}`, margin: `${position}` }}>

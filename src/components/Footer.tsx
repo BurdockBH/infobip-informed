@@ -9,10 +9,10 @@ export default function Footer() {
     <Box
       component="footer"
       sx={{
-          position:"relative",
+        position: "relative",
         py: 1,
-        bottom:0,
-          width:"100%",
+        bottom: 0,
+        width: "100%",
         backgroundColor: (theme) =>
           theme.palette.mode === "light"
             ? theme.palette.grey[200]
@@ -21,14 +21,14 @@ export default function Footer() {
     >
       <Container maxWidth="sm">
         <Typography variant="body1">My Footer can be found here.</Typography>
-          <Typography variant="body2" color="text.secondary">
-              {"Copyright © "}
-              <Link color="inherit" href="https://www.infobip.com/">
-                  Infobip
-              </Link>{" "}
-              {new Date().getFullYear()}
-              {"."}
-          </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {"Copyright © "}
+          <Link color="inherit" href="https://www.infobip.com/">
+            Infobip
+          </Link>{" "}
+          {new Date().getFullYear()}
+          {"."}
+        </Typography>
       </Container>
     </Box>
   );
