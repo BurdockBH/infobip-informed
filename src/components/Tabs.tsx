@@ -55,8 +55,9 @@ export default function BasicTabs() {
           aria-label="basic tabs example"
         >
           <Tab label="Home" {...a11yProps(0)} />
-          <Tab label="Technology" {...a11yProps(1)} />
-          <Tab label="Sports" {...a11yProps(2)} />
+          {newsCategories.map((category, index) => (
+            <Tab label={category.title} {...a11yProps(index + 1)} />
+          ))}
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
