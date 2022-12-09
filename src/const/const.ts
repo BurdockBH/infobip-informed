@@ -7,31 +7,46 @@ export const THEME = createTheme({
     },
   },
 });
+
+export const COMMENT: Comment = {
+  id: "0",
+  content: "Some comment that is a definitely a legit comment",
+};
+export interface Comment {
+  id: string;
+  content: string;
+}
+
 export const DUMMY = [
   {
     id: 0,
     title: "test",
     description: "asdf",
+    comments: [COMMENT],
   },
   {
     id: 1,
     title: "test2",
     description: "text1",
+    comments: [COMMENT],
   },
   {
     id: 2,
     title: "test3",
     description: "text2",
+    comments: [COMMENT],
   },
   {
     id: 3,
     title: "test4",
     description: "text3",
+    comments: [COMMENT],
   },
   {
     id: 4,
     title: "test",
     description: "text4",
+    comments: [COMMENT],
   },
 ];
 
@@ -39,6 +54,7 @@ export const DUMMY_HEADER = {
   id: "head",
   title: "test",
   description: "text4",
+  comments: [COMMENT],
 };
 
 export const DUMMY_TEXT =

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import MainNavBar from "../components/NavBar";
 import { useParams } from "react-router-dom";
 import Footer from "../components/Footer";
@@ -6,10 +6,18 @@ import CardMedia from "@mui/material/CardMedia";
 import { DUMMY, DUMMY_TEXT } from "../const/const";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
+import Comments from "../components/Comments";
 
 function ArticlePage() {
   const { id } = useParams();
-  const content = DUMMY.find((item) => item.id.toString() == id); //It will be used
+  const content = DUMMY.find((item) => item.id.toString() == id);
+
+  const [comments, setComments] = useState<any>(content?.comments);
+
+  const handleComments = (props: string) => {
+    if (props != "") setComments([{ id: "0", content: props }, ...comments]);
+  };
+
   return (
     <div className="App">
       <MainNavBar />
@@ -38,6 +46,9 @@ function ArticlePage() {
         <br />
         {DUMMY_TEXT + DUMMY_TEXT}
       </Typography>
+      <br />
+      <br />
+      <Comments handleComments={handleComments} comments={comments} />
       <br />
       <br />
       <Footer />
