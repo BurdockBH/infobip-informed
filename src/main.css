@@ -38,10 +38,6 @@ html{
 
 }
 
-p{
-    display: block;
-}
-
 .article-description{
     text-shadow: 2px 2px 5px silver;
 }
