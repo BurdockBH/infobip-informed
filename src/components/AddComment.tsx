@@ -23,7 +23,18 @@ export default function AddComment({ handleComments }: any) {
       <Button
         sx={{ display: "block" }}
         onClick={() => {
-          handleComments(text);
+          const DATE = new Date();
+          const TIME =
+            +" " +
+            DATE.getDate() +
+            "-" +
+            (DATE.getMonth() + 1) +
+            "-" +
+            DATE.getFullYear() +
+            "  " +
+            DATE.toLocaleTimeString("en-UK");
+
+          handleComments(text, TIME);
           setText("");
         }}
       >

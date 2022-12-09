@@ -13,6 +13,16 @@ html{
     width: 100%;
     height: 100%;
 }
-/*.add-comment{*/
-/*    margin-left: 50%;*/
-/*}*/
+
+.comment-paragraph{
+    display: flex;
+    padding-left: 5px;
+    float:left;
+}
+
+.comment-time{
+    display: flex;
+    float: right;
+    overflow: hidden;
+    padding-right: 5px;
+}

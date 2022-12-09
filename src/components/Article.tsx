@@ -19,7 +19,7 @@ export default function Article({
       <CardActionArea component={Link} to={"/article/" + id}>
         <CardMedia
           component="img"
-          height="150"
+          height="200"
           image={image}
           alt="report image"
         />

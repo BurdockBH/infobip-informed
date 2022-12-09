@@ -4,6 +4,7 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import NewsGrid from "./NewsGrid";
+import { DUMMY, newsCategories } from "../const/const";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -54,11 +55,19 @@ export default function BasicTabs() {
           aria-label="basic tabs example"
         >
           <Tab label="Home" {...a11yProps(0)} />
+          {newsCategories.map((category, index) => (
+            <Tab label={category.title} {...a11yProps(index + 1)} />
+          ))}
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <NewsGrid />
+        <NewsGrid category={DUMMY} />
       </TabPanel>
+      {newsCategories.map((category, index) => (
+        <TabPanel value={value} index={index + 1}>
+          <NewsGrid category={newsCategories[index].news} />
+        </TabPanel>
+      ))}
     </Box>
   );
 }
