@@ -7,10 +7,18 @@ export default function CommentsList({ comments }: any) {
     <div className="comment-list">
       {comments.map((comment: any, index: any) => (
         <Card
-          sx={{ width: "30%", margin: "auto", "margin-bottom": "5px" }}
+          sx={{
+            width: "30%",
+            margin: "auto",
+            "margin-bottom": "5px",
+            padding: "0",
+          }}
           key={index}
         >
-          <CardContent>{comment.content}</CardContent>
+          <CardContent sx={{ padding: 0 }}>
+            <p className="comment-paragraph">{comment.content}</p>
+            <p className="comment-time">{comment.currentTime}</p>
+          </CardContent>
         </Card>
       ))}
     </div>

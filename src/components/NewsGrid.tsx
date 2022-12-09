@@ -3,10 +3,10 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { useState } from "react";
 import Article from "./Article";
-import { DUMMY, DUMMY_HEADER } from "../const/const";
+import { DUMMY_HEADER } from "../const/const";
 
-export default function News() {
-  const [content, setContent] = useState(DUMMY);
+export default function News({ category }: any) {
+  const [content, setContent] = useState(category);
   const [headContent, setHeadContent] = useState(DUMMY_HEADER);
 
   return (
@@ -24,7 +24,7 @@ export default function News() {
             }
           />
         </Grid>
-        {content.map((report, index) => (
+        {content.map((report: any, index: any) => (
           <Grid item xs={3} key={index}>
             <Article
               title={report.title}
