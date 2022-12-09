@@ -1,20 +1,27 @@
 import React, { useState } from "react";
 import { Button, TextField } from "@mui/material";
+import Box from "@mui/material/Box";
 
 export default function AddComment({ handleComments }: any) {
   const [text, setText] = useState("");
   return (
-    <div className="add-comment">
+    <Box className="add-comment" sx={{ "margin-left": "30%" }}>
       <TextField
+        sx={{
+          width: "600px",
+          background: "white",
+          "background-color": "white",
+        }}
         id="outlined-basic"
         label="Add Comment"
-        variant="outlined"
+        multiline={true}
         value={text}
         onChange={(event) => {
           setText(event.target.value);
         }}
       />
       <Button
+        sx={{ display: "block" }}
         onClick={() => {
           handleComments(text);
           setText("");
@@ -22,6 +29,6 @@ export default function AddComment({ handleComments }: any) {
       >
         Submit
       </Button>
-    </div>
+    </Box>
   );
 }

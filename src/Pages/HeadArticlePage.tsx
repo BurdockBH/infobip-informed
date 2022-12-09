@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import MainNavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 
 import Typography from "@mui/material/Typography";
-import { DUMMY_TEXT } from "../const/const";
+import { DUMMY_HEADER, DUMMY_TEXT } from "../const/const";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
+import Comments from "../components/Comments";
 
 function HeadArticlePage() {
+  const [comments, setComments] = useState<any>(DUMMY_HEADER.comments);
+
+  const handleComments = (props: string) => {
+    setComments([...comments, props]);
+  };
   return (
     <div className="App">
       <MainNavBar />
@@ -38,6 +44,7 @@ function HeadArticlePage() {
       </Typography>
       <br />
       <br />
+      <Comments handleComments={handleComments} comments={comments} />
       <Footer />
     </div>
   );

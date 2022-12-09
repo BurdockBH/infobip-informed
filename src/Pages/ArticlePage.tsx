@@ -6,22 +6,18 @@ import CardMedia from "@mui/material/CardMedia";
 import { DUMMY, DUMMY_TEXT } from "../const/const";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
-import CommentsList from "../components/CommentsList";
-import AddComment from "../components/AddComment";
+import Comments from "../components/Comments";
 
 function ArticlePage() {
-  const [comments, setComments] = useState<any>([
-    "sadasda",
-    "asdaad",
-    "hihohoho",
-  ]);
+  const { id } = useParams();
+  const content = DUMMY.find((item) => item.id.toString() == id);
+
+  const [comments, setComments] = useState<any>(content?.comments);
 
   const handleComments = (props: string) => {
-    setComments([...comments, props]);
+    if (props != "") setComments([props, ...comments]);
   };
 
-  const { id } = useParams();
-  const content = DUMMY.find((item) => item.id.toString() == id); //It will be used
   return (
     <div className="App">
       <MainNavBar />
@@ -52,8 +48,9 @@ function ArticlePage() {
       </Typography>
       <br />
       <br />
-      <AddComment handleComments={handleComments} />
-      <CommentsList comments={comments} />
+      <Comments handleComments={handleComments} comments={comments} />
+      <br />
+      <br />
       <Footer />
     </div>
   );
