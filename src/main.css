@@ -5,7 +5,7 @@ html{
 .article-title{
     position: absolute;
     color: white;
-    top: 200px;
+    top: 180px;
     left: 35%;
     transform: translateX(-50%);
          }
@@ -18,6 +18,8 @@ html{
     display: flex;
     padding-left: 5px;
     float:left;
+    width: 50%;
+
 }
 
 .comment-time{
@@ -25,4 +27,21 @@ html{
     float: right;
     overflow: hidden;
     padding-right: 5px;
+}
+
+.article-text{
+    position: absolute;
+    bottom: 28%;
+    left: 5px;
+    color: white;
+    text-shadow: 5px 5px 5px black;
+
+}
+
+p{
+    display: block;
+}
+
+.article-description{
+    text-shadow: 2px 2px 5px silver;
 }

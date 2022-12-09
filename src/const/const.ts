@@ -19,6 +19,23 @@ export const THEME = createTheme({
   },
 });
 
+export const imgOverlay = {
+  media: {
+    height: 0,
+    paddingTop: "56.25%", // 16:9
+  },
+  card: {
+    position: "relative",
+  },
+  overlay: {
+    position: "absolute",
+    top: "20px",
+    left: "20px",
+    color: "black",
+    backgroundColor: "white",
+  },
+};
+
 export const COMMENT: Comment = {
   id: "0",
   content: "Some comment that is a definitely a legit comment",
@@ -33,36 +50,36 @@ export interface Comment {
 export const DUMMY = [
   {
     id: 0,
-    title: "test",
-    description: "asdf",
+    title: "Lorem ipsum dolor sit amet",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     category: "Technology",
     comments: [COMMENT],
   },
   {
     id: 1,
-    title: "test2",
-    description: "text1",
+    title: "Lorem ipsum dolor sit amet",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     category: "Technology",
     comments: [COMMENT],
   },
   {
     id: 2,
-    title: "test3",
-    description: "text2",
+    title: "Lorem ipsum dolor sit amet",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     category: "Technology",
     comments: [COMMENT],
   },
   {
     id: 3,
-    title: "test4",
-    description: "text3",
+    title: "Lorem ipsum dolor sit amet",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     category: "Sports",
     comments: [COMMENT],
   },
   {
     id: 4,
-    title: "test",
-    description: "text4",
+    title: "Lorem ipsum dolor sit amet",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     category: "Sports",
     comments: [COMMENT],
   },
@@ -70,8 +87,8 @@ export const DUMMY = [
 
 export const DUMMY_HEADER = {
   id: "head",
-  title: "test",
-  description: "text4",
+  title: "Lorem ipsum dolor sit amet",
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   comments: [COMMENT],
 };
 

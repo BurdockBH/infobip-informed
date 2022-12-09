@@ -27,6 +27,7 @@ export default function News({ category }: any) {
         {content.map((report: any, index: any) => (
           <Grid item xs={3} key={index}>
             <Article
+              description={report.description}
               title={report.title}
               id={report.id}
               image={
