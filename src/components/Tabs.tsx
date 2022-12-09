@@ -62,12 +62,11 @@ export default function BasicTabs() {
       <TabPanel value={value} index={0}>
         <NewsGrid category={DUMMY} />
       </TabPanel>
-      <TabPanel value={value} index={1}>
-        <NewsGrid category={newsCategories[0].news} />
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        <NewsGrid category={newsCategories[1].news} />
-      </TabPanel>
+      {newsCategories.map((category, index) => (
+        <TabPanel value={value} index={index + 1}>
+          <NewsGrid category={newsCategories[index].news} />
+        </TabPanel>
+      ))}
     </Box>
   );
 }
