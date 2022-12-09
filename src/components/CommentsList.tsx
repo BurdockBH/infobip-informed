@@ -10,7 +10,7 @@ export default function CommentsList({ comments }: any) {
           sx={{ width: "30%", margin: "auto", "margin-bottom": "5px" }}
           key={index}
         >
-          <CardContent>{comment}</CardContent>
+          <CardContent>{comment.content}</CardContent>
         </Card>
       ))}
     </div>

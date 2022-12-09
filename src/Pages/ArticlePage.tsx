@@ -15,7 +15,7 @@ function ArticlePage() {
   const [comments, setComments] = useState<any>(content?.comments);
 
   const handleComments = (props: string) => {
-    if (props != "") setComments([props, ...comments]);
+    if (props != "") setComments([{ id: "0", content: props }, ...comments]);
   };
 
   return (

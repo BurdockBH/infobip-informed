@@ -8,7 +8,14 @@ export const THEME = createTheme({
   },
 });
 
-export const COMMENT = "Some comment that is a definitely a legit comment";
+export const COMMENT: Comment = {
+  id: "0",
+  content: "Some comment that is a definitely a legit comment",
+};
+export interface Comment {
+  id: string;
+  content: string;
+}
 
 export const DUMMY = [
   {

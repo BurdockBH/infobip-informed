@@ -12,7 +12,7 @@ function HeadArticlePage() {
   const [comments, setComments] = useState<any>(DUMMY_HEADER.comments);
 
   const handleComments = (props: string) => {
-    setComments([...comments, props]);
+    if (props != "") setComments([{ id: "0", content: props }, ...comments]);
   };
   return (
     <div className="App">
