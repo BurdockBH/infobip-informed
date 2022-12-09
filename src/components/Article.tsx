@@ -23,11 +23,16 @@ export default function Article({
           image={image}
           alt="report image"
         />
+        <div className="article-text">
+          <h2>{title}</h2>
+        </div>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {title}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography
+            className="article-description"
+            gutterBottom
+            variant="h6"
+            component="div"
+          >
             {description}
           </Typography>
         </CardContent>

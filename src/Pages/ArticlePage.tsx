@@ -39,7 +39,7 @@ function ArticlePage() {
             }}
           />
           <div className="article-title">
-            <Typography variant="h1">This just in</Typography>
+            <Typography variant="h1">{content?.title}</Typography>
           </div>
         </div>
       </Card>

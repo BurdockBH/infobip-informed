@@ -34,7 +34,9 @@ function HeadArticlePage() {
             }}
           />
           <div className="article-title">
-            <Typography variant="h1">This just in</Typography>
+            <Typography sx={{ "padding-bottom": "-5px" }} variant="h1">
+              {DUMMY_HEADER.title}
+            </Typography>
           </div>
         </div>
       </Card>

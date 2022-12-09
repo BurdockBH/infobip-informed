@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
 
 export default function CommentsList({ comments }: any) {
   return (
@@ -8,7 +9,7 @@ export default function CommentsList({ comments }: any) {
       {comments.map((comment: any, index: any) => (
         <Card
           sx={{
-            width: "30%",
+            width: "70%",
             margin: "auto",
             "margin-bottom": "5px",
             padding: "0",
@@ -16,7 +17,9 @@ export default function CommentsList({ comments }: any) {
           key={index}
         >
           <CardContent sx={{ padding: 0 }}>
-            <p className="comment-paragraph">{comment.content}</p>
+            <Typography className="comment-paragraph">
+              {comment.content}
+            </Typography>
             <p className="comment-time">{comment.currentTime}</p>
           </CardContent>
         </Card>
