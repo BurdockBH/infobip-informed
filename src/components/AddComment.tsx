@@ -5,10 +5,10 @@ import Box from "@mui/material/Box";
 export default function AddComment({ handleComments }: any) {
   const [text, setText] = useState("");
   return (
-    <Box className="add-comment" sx={{ "margin-left": "15%" }}>
+    <Box className="add-comment" sx={{ "margin-left": "30%" }}>
       <TextField
         sx={{
-          width: "82.3%",
+          width: "600px",
           background: "white",
           "background-color": "white",
         }}
@@ -23,17 +23,7 @@ export default function AddComment({ handleComments }: any) {
       <Button
         sx={{ display: "block" }}
         onClick={() => {
-          const DATE = new Date();
-          const TIME =
-            +" " +
-            DATE.getDate() +
-            "-" +
-            (DATE.getMonth() + 1) +
-            "-" +
-            DATE.getFullYear() +
-            "  " +
-            DATE.toLocaleTimeString("en-UK");
-          handleComments(text, TIME);
+          handleComments(text);
           setText("");
         }}
       >
