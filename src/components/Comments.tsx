@@ -1,7 +1,7 @@
-import React from "react";
-import Grid from "@mui/material/Grid";
-import AddComment from "./AddComment";
-import CommentsList from "./CommentsList";
+import React from 'react';
+import Grid from '@mui/material/Grid';
+import AddComment from './AddComment';
+import CommentsList from './CommentsList';
 
 export default function Comments({ handleComments, comments }: any) {
   return (

@@ -1,47 +1,43 @@
-import React, { useState } from "react";
-import MainNavBar from "../components/NavBar";
-import Footer from "../components/Footer";
+import React, { useState } from 'react';
+import MainNavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 
-import Typography from "@mui/material/Typography";
-import { DUMMY_HEADER, DUMMY_TEXT } from "../const/const";
-import Card from "@mui/material/Card";
-import CardMedia from "@mui/material/CardMedia";
-import Comments from "../components/Comments";
+import Typography from '@mui/material/Typography';
+import { DUMMY_HEADER, DUMMY_TEXT } from '../const/const';
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import Comments from '../components/Comments';
 
 function HeadArticlePage() {
   const [comments, setComments] = useState<any>(DUMMY_HEADER.comments);
   const handleComments = (props: string, time: string) => {
-    if (props != "")
-      setComments([
-        { id: "0", content: props, currentTime: time },
-        ...comments,
-      ]);
+    if (props != '') setComments([{ id: '0', content: props, currentTime: time }, ...comments]);
   };
   return (
-    <div className="App">
+    <div className='App'>
       <MainNavBar />
       <Card>
         <div>
           <CardMedia
-            height="350"
-            component="img"
+            height='350'
+            component='img'
             image={
-              "https://www.bug.hr/img/domaci-infobip-sada-vrijedi-vise-od-milijardu-dolara_hqrVf3.jpg"
+              'https://www.bug.hr/img/domaci-infobip-sada-vrijedi-vise-od-milijardu-dolara_hqrVf3.jpg'
             }
-            alt="News"
+            alt='News'
             sx={{
-              "object-position": "top",
+              'object-position': 'top',
             }}
           />
-          <div className="article-title">
-            <Typography sx={{ "padding-bottom": "-5px" }} variant="h1">
+          <div className='article-title'>
+            <Typography sx={{ 'padding-bottom': '-5px' }} variant='h1'>
               {DUMMY_HEADER.title}
             </Typography>
           </div>
         </div>
       </Card>
       <br />
-      <Typography width="70%" sx={{ margin: "auto" }}>
+      <Typography width='70%' sx={{ margin: 'auto' }}>
         {DUMMY_TEXT + DUMMY_TEXT}
         <br />
         <br />
