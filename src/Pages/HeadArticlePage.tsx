@@ -13,7 +13,6 @@ function HeadArticlePage({ headArticle }: any) {
     if (props != '') setComments([{ id: '0', content: props, currentTime: time }, ...comments]);
   };
 
-  console.log(headArticle);
   return (
     <div className='App'>
       <MainNavBar />
