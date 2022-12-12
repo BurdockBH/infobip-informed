@@ -23,9 +23,8 @@ export default function Footer() {
           {'Copyright © '}
           <Link color='inherit' href='https://www.infobip.com/'>
             Infobip
-          </Link>{' '}
+          </Link>
           {new Date().getFullYear()}
-          {'.'}
         </Typography>
       </Container>
     </Box>

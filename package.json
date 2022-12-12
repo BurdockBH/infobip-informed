@@ -50,12 +50,13 @@
     "eslint-config-standard-with-typescript": "^23.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.6.0",
+    "eslint-plugin-only-warn": "^1.1.0",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.31.11",
     "prettier": "2.8.1",
     "typescript": "^4.9.4"
   },
-  "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
+  "lint": "eslint --max-warnings=0 ...",
   "lint:fix": "eslint --fix src/**/*.{js,jsx,ts,tsx,json}",
   "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,md,json,scss} --config ./.prettierrc"
 }
