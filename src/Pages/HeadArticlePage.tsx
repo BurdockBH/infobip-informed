@@ -3,16 +3,17 @@ import MainNavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 
 import Typography from '@mui/material/Typography';
-import { DUMMY_HEADER, DUMMY_TEXT } from '../const/const';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Comments from '../components/Comments';
 
-function HeadArticlePage() {
-  const [comments, setComments] = useState<any>(DUMMY_HEADER.comments);
+function HeadArticlePage({ headArticle }: any) {
+  const [comments, setComments] = useState(headArticle?.comments);
   const handleComments = (props: string, time: string) => {
     if (props != '') setComments([{ id: '0', content: props, currentTime: time }, ...comments]);
   };
+
+  console.log(headArticle);
   return (
     <div className='App'>
       <MainNavBar />
@@ -31,17 +32,17 @@ function HeadArticlePage() {
           />
           <div className='article-title'>
             <Typography sx={{ 'padding-bottom': '-5px' }} variant='h1'>
-              {DUMMY_HEADER.title}
+              {headArticle?.title}
             </Typography>
           </div>
         </div>
       </Card>
       <br />
       <Typography width='70%' sx={{ margin: 'auto' }}>
-        {DUMMY_TEXT + DUMMY_TEXT}
+        {headArticle?.text + headArticle?.text}
         <br />
         <br />
-        {DUMMY_TEXT + DUMMY_TEXT}
+        {headArticle?.text + headArticle?.text}
       </Typography>
       <br />
       <br />

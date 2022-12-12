@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 export default function CommentsList({ comments }: any) {
   return (
     <div className='comment-list'>
-      {comments.map((comment: any, index: any) => (
+      {comments?.map((comment: any, index: any) => (
         <Card
           sx={{
             width: '70%',
@@ -17,8 +17,8 @@ export default function CommentsList({ comments }: any) {
           key={index}
         >
           <CardContent sx={{ padding: 0 }}>
-            <Typography className='comment-paragraph'>{comment.content}</Typography>
-            <p className='comment-time'>{comment.currentTime}</p>
+            <Typography className='comment-paragraph'>{comment?.content}</Typography>
+            <p className='comment-time'>{comment?.currentTime}</p>
           </CardContent>
         </Card>
       ))}

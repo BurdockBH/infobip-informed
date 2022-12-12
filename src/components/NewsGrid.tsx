@@ -1,13 +1,18 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Article from './Article';
-import { DUMMY_HEADER } from '../const/const';
+import axios from 'axios';
 
 export default function News({ category }: any) {
-  const [content, setContent] = useState(category);
-  const [headContent, setHeadContent] = useState(DUMMY_HEADER);
+  const [headContent, setHeadContent] = useState<any>('');
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:8000/head-article')
+      .then((response) => setHeadContent(response.data));
+  }, []);
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -24,9 +29,10 @@ export default function News({ category }: any) {
             }
           />
         </Grid>
-        {content.map((report: any, index: any) => (
+        {category.map((report: any, index: any) => (
           <Grid item xs={3} key={index}>
             <Article
+              articlePage={report}
               description={report.description}
               title={report.title}
               id={report.id}

@@ -3,17 +3,15 @@ import MainNavBar from '../components/NavBar';
 import { useParams } from 'react-router-dom';
 import Footer from '../components/Footer';
 import CardMedia from '@mui/material/CardMedia';
-import { DUMMY, DUMMY_TEXT } from '../const/const';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import Comments from '../components/Comments';
 
-function ArticlePage() {
+function ArticlePage({ article }: any) {
   const { id } = useParams();
-  const content = DUMMY.find((item) => item.id.toString() == id);
+  const content = article.find((item: any) => item.id.toString() == id);
 
-  const [comments, setComments] = useState<any>(content?.comments);
-
+  const [comments, setComments] = useState(content?.comments);
   const handleComments = (props: string, time: string) => {
     if (props != '') setComments([{ id: '0', content: props, currentTime: time }, ...comments]);
   };
@@ -41,10 +39,10 @@ function ArticlePage() {
       </Card>
       <br />
       <Typography width='70%' sx={{ margin: 'auto' }}>
-        {DUMMY_TEXT + DUMMY_TEXT}
+        {content?.text + content?.text}
         <br />
         <br />
-        {DUMMY_TEXT + DUMMY_TEXT}
+        {content?.text + content?.text}
       </Typography>
       <br />
       <br />
