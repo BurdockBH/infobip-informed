@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import MainNavBar from "../components/NavBar";
-import { useParams } from "react-router-dom";
-import Footer from "../components/Footer";
-import CardMedia from "@mui/material/CardMedia";
-import { DUMMY, DUMMY_TEXT } from "../const/const";
-import Card from "@mui/material/Card";
-import Typography from "@mui/material/Typography";
-import Comments from "../components/Comments";
+import React, { useState } from 'react';
+import MainNavBar from '../components/NavBar';
+import { useParams } from 'react-router-dom';
+import Footer from '../components/Footer';
+import CardMedia from '@mui/material/CardMedia';
+import { DUMMY, DUMMY_TEXT } from '../const/const';
+import Card from '@mui/material/Card';
+import Typography from '@mui/material/Typography';
+import Comments from '../components/Comments';
 
 function ArticlePage() {
   const { id } = useParams();
@@ -15,36 +15,32 @@ function ArticlePage() {
   const [comments, setComments] = useState<any>(content?.comments);
 
   const handleComments = (props: string, time: string) => {
-    if (props != "")
-      setComments([
-        { id: "0", content: props, currentTime: time },
-        ...comments,
-      ]);
+    if (props != '') setComments([{ id: '0', content: props, currentTime: time }, ...comments]);
   };
 
   return (
-    <div className="App">
+    <div className='App'>
       <MainNavBar />
       <Card>
         <div>
           <CardMedia
-            height="350"
-            component="img"
+            height='350'
+            component='img'
             image={
-              "https://www.lighthouselabs.ca/uploads/post/open_graph_image/408/Person-Coding-On-Computer.jpg"
+              'https://www.lighthouselabs.ca/uploads/post/open_graph_image/408/Person-Coding-On-Computer.jpg'
             }
-            alt="News"
+            alt='News'
             sx={{
-              "object-position": "top",
+              'object-position': 'top',
             }}
           />
-          <div className="article-title">
-            <Typography variant="h1">{content?.title}</Typography>
+          <div className='article-title'>
+            <Typography variant='h1'>{content?.title}</Typography>
           </div>
         </div>
       </Card>
       <br />
-      <Typography width="70%" sx={{ margin: "auto" }}>
+      <Typography width='70%' sx={{ margin: 'auto' }}>
         {DUMMY_TEXT + DUMMY_TEXT}
         <br />
         <br />
