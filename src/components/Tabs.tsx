@@ -38,7 +38,7 @@ function a11yProps(index: number) {
   };
 }
 
-export default function BasicTabs({ categories, articles }: any) {
+export default function BasicTabs({ categories, articles, headArticle }: any) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -61,11 +61,11 @@ export default function BasicTabs({ categories, articles }: any) {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <NewsGrid category={articles} />
+        <NewsGrid category={articles} headContent={headArticle} />
       </TabPanel>
       {newsCategories.map((category: any, index: any) => (
         <TabPanel key={index} value={value} index={index + 1}>
-          <NewsGrid category={newsCategories[index].news} />
+          <NewsGrid category={newsCategories[index].news} headContent={headArticle} />
         </TabPanel>
       ))}
     </Box>

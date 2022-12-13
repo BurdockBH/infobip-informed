@@ -11,7 +11,7 @@ function App() {
   const [status, setStatus] = React.useState(true);
   const [articles, setArticles] = React.useState([]);
   const [categories, setCategories] = React.useState<any[]>([]);
-  const [headArticle, setHeadArticle] = React.useState<any[]>([]);
+  const [headArticle, setHeadArticle] = React.useState<any>('');
 
   //Axios .catch, both the res and err objects are the same as with the async/await syntax.
 
@@ -88,8 +88,16 @@ function App() {
       <div className='App'>
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={<Landing articles={articles} categories={categories} />} />
-            <Route path='/article/:id' element={<ArticlePage article={articles} />} />
+            <Route
+              path='/'
+              element={
+                <Landing articles={articles} categories={categories} headArticle={headArticle} />
+              }
+            />
+            <Route
+              path='/article/:id'
+              element={<ArticlePage article={articles} headArticle={headArticle} />}
+            />
             <Route
               path='/article/head-article'
               element={<HeadArticle headArticle={headArticle} />}

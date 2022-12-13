@@ -1,27 +1,17 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import { useEffect, useState } from 'react';
 import Article from './Article';
-import axios from 'axios';
 
-export default function News({ category }: any) {
-  const [headContent, setHeadContent] = useState<any>('');
-
-  useEffect(() => {
-    axios
-      .get('http://localhost:8000/head-article')
-      .then((response) => setHeadContent(response.data));
-  }, []);
-
+export default function News({ category, headContent }: any) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Article
             width={'50%'}
-            title={headContent.title}
-            description={headContent.description}
+            title={headContent?.title}
+            description={headContent?.description}
             position={'auto'}
             id={'head-article'}
             image={
