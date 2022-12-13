@@ -7,9 +7,11 @@ export default function News({ category, headContent }: any) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
-        <Grid item xs={12}>
+        <Grid item lg={9} md={12} xs={12} height={400}>
           <Article
-            width={'50%'}
+            className='head-article-banner'
+            width={'100%'}
+            height={320}
             title={headContent?.title}
             description={headContent?.description}
             position={'auto'}
@@ -20,7 +22,7 @@ export default function News({ category, headContent }: any) {
           />
         </Grid>
         {category.map((report: any, index: any) => (
-          <Grid item xs={3} key={index}>
+          <Grid item lg={3} md={6} xs={12} key={index}>
             <Article
               articlePage={report}
               description={report.description}
