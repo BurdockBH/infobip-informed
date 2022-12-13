@@ -2,6 +2,7 @@ html{
     background-color: rgb(238,238,238);
 }
 
+
 .article-title{
     position: absolute;
     color: white;
@@ -9,6 +10,8 @@ html{
     left: 35%;
     transform: translateX(-50%);
 }
+
+
 .nav-img{
     width: 100%;
     height: 100%;
@@ -36,6 +39,21 @@ html{
     color: white;
     text-shadow: 5px 5px 5px black;
 
+}
+
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 480px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: portrait) {
+    .article-text{
+        position: absolute;
+        bottom: 40%;
+        left: 5px;
+        color: white;
+        text-shadow: 5px 5px 5px black;
+
+    }
 }
 
 .article-description{
