@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 export default function Article({ image, title, description, width, position, id }: any) {
   return (
     <Card sx={{ width: `${width}`, margin: `${position}` }}>
-      <CardActionArea component={Link} to={'/article/' + id}>
+      <CardActionArea component={Link} to={{ pathname: '/article/' + id }}>
         <CardMedia component='img' height='200' image={image} alt='report image' />
         <div className='article-text'>
           <h2>{title}</h2>

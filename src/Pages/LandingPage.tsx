@@ -1,13 +1,13 @@
 import React from 'react';
 import MainNavBar from '../components/NavBar';
-import TabPanel from '../components/Tabs';
 import Footer from '../components/Footer';
+import BasicTabs from '../components/Tabs';
 
-function Landing() {
+function Landing({ categories, articles, headArticle }: any) {
   return (
     <div className='App'>
       <MainNavBar />
-      <TabPanel />
+      <BasicTabs categories={categories} articles={articles} headArticle={headArticle} />
       <Footer />
     </div>
   );
