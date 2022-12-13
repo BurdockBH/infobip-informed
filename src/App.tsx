@@ -15,49 +15,71 @@ function App() {
 
   //Axios .catch, both the res and err objects are the same as with the async/await syntax.
 
-  const getArticles = useCallback(() => {
+  const getArticles = useCallback((controller: any) => {
     axios
-      .get('http://localhost:8000/articles')
+      .get('http://localhost:8000/articles', { signal: controller.signal })
       .then((response) => {
         setArticles(response.data);
       })
       .catch((err) => {
-        setStatus(false);
+        if (err.code == 'ERR_CANCELED') console.log(err);
+        else {
+          console.log(err);
+          setStatus(false);
+        }
       });
   }, []);
 
-  const getCategories = useCallback(() => {
+  const getCategories = useCallback((controller: any) => {
     axios
-      .get('http://localhost:8000/categories')
+      .get('http://localhost:8000/categories', { signal: controller.signal })
       .then((response) => setCategories(response.data))
       .catch((err) => {
-        setStatus(false);
+        if (err.code == 'ERR_CANCELED') console.log(err);
+        else {
+          console.log(err);
+          setStatus(false);
+        }
       });
   }, []);
 
-  function getHeadArticle() {
+  const getHeadArticle = useCallback((controller: any) => {
     axios
-      .get('http://localhost:8000/head-article')
+      .get('http://localhost:8000/head-article', { signal: controller.signal })
       .then((response) => setHeadArticle(response.data))
       .catch((err) => {
-        setStatus(false);
+        if (err.code == 'ERR_CANCELED') console.log(err);
+        else {
+          console.log(err);
+          setStatus(false);
+        }
       });
-  }
+  }, []);
 
   useEffect(() => {
-    getArticles();
+    const controller = new AbortController();
+    getArticles(controller);
+    return () => {
+      controller.abort();
+    };
   }, [getArticles]);
 
   useEffect(() => {
-    getCategories();
+    const controller = new AbortController();
+
+    getCategories(controller);
+    return () => {
+      controller.abort();
+    };
   }, [getCategories]);
 
   useEffect(() => {
-    getHeadArticle();
+    const controller = new AbortController();
+    getHeadArticle(controller);
     return () => {
-      console.log('pozvan');
+      controller.abort();
     };
-  }, []);
+  }, [getHeadArticle]);
 
   if (!status) {
     return <Error />;
