@@ -6,9 +6,11 @@ import ArticlePage from './Pages/ArticlePage';
 import HeadArticle from './Pages/HeadArticlePage';
 import Error from './Pages/Error404';
 import { getArticlesData, getHeadArticleData, getCategoriesData } from './Services/Services';
+import LoadingSpinner from './components/LoadingSpinner';
 
 function App() {
-  const [status, setStatus] = React.useState(true);
+  const [status, setStatus] = React.useState({ status: true, code: '' });
+  const [isLoading, setIsLoading] = React.useState(false);
   const [articles, setArticles] = React.useState([]);
   const [categories, setCategories] = React.useState<any[]>([]);
   const [headArticle, setHeadArticle] = React.useState<any>('');
@@ -16,15 +18,17 @@ function App() {
   //Axios .catch, both the res and err objects are the same as with the async/await syntax.
 
   const getArticles = useCallback((controller: any) => {
+    setIsLoading(true);
     getArticlesData(controller)
       .then((response) => {
         setArticles(response.data);
+        setIsLoading(false);
       })
       .catch((err) => {
         if (err.code == 'ERR_CANCELED') console.log(err);
         else {
           console.log(err);
-          setStatus(false);
+          setStatus({ status: false, code: err.code });
         }
       });
   }, []);
@@ -36,7 +40,7 @@ function App() {
         if (err.code == 'ERR_CANCELED') console.log(err);
         else {
           console.log(err);
-          setStatus(false);
+          setStatus({ status: false, code: err.code });
         }
       });
   }, []);
@@ -48,7 +52,7 @@ function App() {
         if (err.code == 'ERR_CANCELED') console.log(err);
         else {
           console.log(err);
-          setStatus(false);
+          setStatus({ status: false, code: err.code });
         }
       });
   }, []);
@@ -78,29 +82,32 @@ function App() {
     };
   }, [getHeadArticle]);
 
-  if (!status) {
-    return <Error />;
+  if (!status.status) {
+    return <Error code={status.code} />;
   } else {
     return (
       <div className='App'>
-        <BrowserRouter>
-          <Routes>
-            <Route
-              path='/'
-              element={
-                <Landing articles={articles} categories={categories} headArticle={headArticle} />
-              }
-            />
-            <Route
-              path='/article/:id'
-              element={<ArticlePage article={articles} headArticle={headArticle} />}
-            />
-            <Route
-              path='/article/head-article'
-              element={<HeadArticle headArticle={headArticle} />}
-            />
-          </Routes>
-        </BrowserRouter>
+        {!isLoading && (
+          <BrowserRouter>
+            <Routes>
+              <Route
+                path='/'
+                element={
+                  <Landing articles={articles} categories={categories} headArticle={headArticle} />
+                }
+              />
+              <Route
+                path='/article/:id'
+                element={<ArticlePage article={articles} headArticle={headArticle} />}
+              />
+              <Route
+                path='/article/head-article'
+                element={<HeadArticle headArticle={headArticle} />}
+              />
+            </Routes>
+          </BrowserRouter>
+        )}
+        {isLoading && <LoadingSpinner />}
       </div>
     );
   }

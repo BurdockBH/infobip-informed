@@ -23,6 +23,14 @@ html{
 
 }
 
+.loader {
+    position: absolute;
+    top: calc(50% - 2em);
+    left: calc(50% - 2em);
+
+
+}
+
 .comment-time{
     display: flex;
     float: right;
