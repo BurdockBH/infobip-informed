@@ -5,7 +5,7 @@ import Landing from './Pages/LandingPage';
 import ArticlePage from './Pages/ArticlePage';
 import HeadArticle from './Pages/HeadArticlePage';
 import Error from './Pages/Error404';
-import axios from 'axios';
+import { getArticlesData, getHeadArticleData, getCategoriesData } from './Services/Services';
 
 function App() {
   const [status, setStatus] = React.useState(true);
@@ -16,8 +16,7 @@ function App() {
   //Axios .catch, both the res and err objects are the same as with the async/await syntax.
 
   const getArticles = useCallback((controller: any) => {
-    axios
-      .get('http://localhost:8000/articles', { signal: controller.signal })
+    getArticlesData(controller)
       .then((response) => {
         setArticles(response.data);
       })
@@ -31,8 +30,7 @@ function App() {
   }, []);
 
   const getCategories = useCallback((controller: any) => {
-    axios
-      .get('http://localhost:8000/categories', { signal: controller.signal })
+    getCategoriesData(controller)
       .then((response) => setCategories(response.data))
       .catch((err) => {
         if (err.code == 'ERR_CANCELED') console.log(err);
@@ -44,8 +42,7 @@ function App() {
   }, []);
 
   const getHeadArticle = useCallback((controller: any) => {
-    axios
-      .get('http://localhost:8000/head-article', { signal: controller.signal })
+    getHeadArticleData(controller)
       .then((response) => setHeadArticle(response.data))
       .catch((err) => {
         if (err.code == 'ERR_CANCELED') console.log(err);
