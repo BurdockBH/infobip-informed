@@ -2,7 +2,6 @@ html{
     background-color: rgb(238,238,238);
 }
 
-
 .article-title{
     position: absolute;
     color: white;
@@ -10,7 +9,6 @@ html{
     left: 35%;
     transform: translateX(-50%);
 }
-
 
 .nav-img{
     width: 100%;
