@@ -24,12 +24,10 @@ function ArticlePage({ article }: any) {
           <CardMedia
             height='350'
             component='img'
-            image={
-              'https://www.lighthouselabs.ca/uploads/post/open_graph_image/408/Person-Coding-On-Computer.jpg'
-            }
+            image={content.img_url}
             alt='News'
             sx={{
-              'object-position': 'top',
+              'object-position': 'center',
             }}
           />
           <div className='article-title'>
