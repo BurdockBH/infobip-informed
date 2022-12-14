@@ -5,14 +5,14 @@ import Landing from './Pages/LandingPage';
 import ArticlePage from './Pages/ArticlePage';
 import HeadArticle from './Pages/HeadArticlePage';
 import Error from './Pages/Error404';
-import { getArticlesData, getHeadArticleData, getCategoriesData } from './Services/Services';
+import { getArticlesData } from './Services/Services';
 import LoadingSpinner from './components/LoadingSpinner';
+import { categories } from './const/const';
 
 function App() {
   const [status, setStatus] = React.useState({ status: true, code: '' });
   const [isLoading, setIsLoading] = React.useState(false);
   const [articles, setArticles] = React.useState([]);
-  const [categories, setCategories] = React.useState<any[]>([]);
   const [headArticle, setHeadArticle] = React.useState<any>('');
 
   //Axios .catch, both the res and err objects are the same as with the async/await syntax.
@@ -21,7 +21,8 @@ function App() {
     setIsLoading(true);
     getArticlesData(controller)
       .then((response) => {
-        setArticles(response.data);
+        const [, ...rest] = response.data;
+        setArticles(rest);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -33,21 +34,9 @@ function App() {
       });
   }, []);
 
-  const getCategories = useCallback((controller: any) => {
-    getCategoriesData(controller)
-      .then((response) => setCategories(response.data))
-      .catch((err) => {
-        if (err.code == 'ERR_CANCELED') console.log(err);
-        else {
-          console.log(err);
-          setStatus({ status: false, code: err.code });
-        }
-      });
-  }, []);
-
   const getHeadArticle = useCallback((controller: any) => {
-    getHeadArticleData(controller)
-      .then((response) => setHeadArticle(response.data))
+    getArticlesData(controller)
+      .then((response) => setHeadArticle(response.data.shift()))
       .catch((err) => {
         if (err.code == 'ERR_CANCELED') console.log(err);
         else {
@@ -64,15 +53,6 @@ function App() {
       controller.abort();
     };
   }, [getArticles]);
-
-  useEffect(() => {
-    const controller = new AbortController();
-
-    getCategories(controller);
-    return () => {
-      controller.abort();
-    };
-  }, [getCategories]);
 
   useEffect(() => {
     const controller = new AbortController();

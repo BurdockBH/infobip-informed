@@ -5,11 +5,23 @@ import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Comments from '../components/Comments';
+import { postComment } from '../Services/Services';
 
 function HeadArticlePage({ headArticle }: any) {
-  const [comments, setComments] = useState(headArticle?.comments);
-  const handleComments = (props: string, time: string) => {
-    if (props != '') setComments([{ id: '0', content: props, currentTime: time }, ...comments]);
+  const reversed = headArticle?.comments;
+
+  const [comments, setComments] = useState(reversed);
+  const handleComments = (props: string, ctime: string) => {
+    if (props != '') {
+      const newComment = {
+        id: comments.length + 1,
+        content: props,
+        time: ctime,
+        article_id: 0,
+      };
+      setComments([...comments, newComment]);
+      postComment(newComment);
+    }
   };
 
   return (
@@ -20,9 +32,7 @@ function HeadArticlePage({ headArticle }: any) {
           <CardMedia
             height='350'
             component='img'
-            image={
-              'https://www.bug.hr/img/domaci-infobip-sada-vrijedi-vise-od-milijardu-dolara_hqrVf3.jpg'
-            }
+            image={headArticle.img_url}
             alt='News'
             sx={{
               'object-position': 'top',

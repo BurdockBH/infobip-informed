@@ -6,15 +6,28 @@ import CardMedia from '@mui/material/CardMedia';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import Comments from '../components/Comments';
+import { postComment } from '../Services/Services';
 
 function ArticlePage({ article }: any) {
   const { id } = useParams();
   const content = article.find((item: any) => item.id.toString() == id);
+  const reversed = content?.comments;
 
-  const [comments, setComments] = useState(content?.comments);
-  const handleComments = (props: string, time: string) => {
-    if (props != '') setComments([{ id: '0', content: props, currentTime: time }, ...comments]);
+  const [comments, setComments] = useState(reversed);
+  const handleComments = (props: string, ctime: string) => {
+    if (props != '') {
+      const newComment = {
+        id: comments.length + 1,
+        content: props,
+        time: ctime,
+        article_id: parseInt(id!),
+      };
+      setComments([...comments, newComment]);
+      postComment(newComment);
+    }
   };
+
+  console.log(reversed);
 
   if (!content) return null;
   return (
