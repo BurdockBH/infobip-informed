@@ -60,3 +60,11 @@ and (orientation: portrait) {
 .article-description{
     text-shadow: 2px 2px 5px silver;
 }
+
+.contact-form{
+    margin-top: 10%;
+    display:grid;
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 10%;
+}
