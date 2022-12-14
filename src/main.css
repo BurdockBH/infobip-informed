@@ -20,7 +20,12 @@ html{
     padding-left: 5px;
     float:left;
     width: 50%;
+}
 
+.loader {
+    position: absolute;
+    top: calc(50% - 2em);
+    left: calc(50% - 2em);
 }
 
 .comment-time{
@@ -36,7 +41,6 @@ html{
     left: 5px;
     color: white;
     text-shadow: 5px 5px 5px black;
-
 }
 
 @media only screen
@@ -50,7 +54,6 @@ and (orientation: portrait) {
         left: 5px;
         color: white;
         text-shadow: 5px 5px 5px black;
-
     }
 }
 

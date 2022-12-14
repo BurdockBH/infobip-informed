@@ -7,3 +7,5 @@ export const THEME = createTheme({
     },
   },
 });
+
+export const categories = ['Sports', 'Technology'];

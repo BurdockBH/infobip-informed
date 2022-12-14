@@ -6,16 +6,27 @@ import CardMedia from '@mui/material/CardMedia';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import Comments from '../components/Comments';
+import { postComment } from '../Services/Services';
 
 function ArticlePage({ article }: any) {
   const { id } = useParams();
   const content = article.find((item: any) => item.id.toString() == id);
+  const reversed = content?.comments;
 
-  const [comments, setComments] = useState(content?.comments);
-  const handleComments = (props: string, time: string) => {
-    if (props != '') setComments([{ id: '0', content: props, currentTime: time }, ...comments]);
+  const [comments, setComments] = useState(reversed);
+  const handleComments = (props: string, ctime: string) => {
+    if (props != '') {
+      const newComment = {
+        content: props,
+        time: ctime,
+        article_id: parseInt(id!),
+      };
+      setComments([...comments, newComment]);
+      postComment(newComment);
+    }
   };
 
+  if (!content) return null;
   return (
     <div className='App'>
       <MainNavBar />
@@ -24,12 +35,10 @@ function ArticlePage({ article }: any) {
           <CardMedia
             height='350'
             component='img'
-            image={
-              'https://www.lighthouselabs.ca/uploads/post/open_graph_image/408/Person-Coding-On-Computer.jpg'
-            }
+            image={content.img_url}
             alt='News'
             sx={{
-              'object-position': 'top',
+              'object-position': 'center',
             }}
           />
           <div className='article-title'>

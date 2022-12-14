@@ -16,9 +16,7 @@ export default function News({ category, headContent }: any) {
             description={headContent?.description}
             position={'auto'}
             id={'head-article'}
-            image={
-              'https://thumbs.dreamstime.com/b/chalk-board-sketch-loudspeaker-phrase-important-news-144457132.jpg'
-            }
+            image={headContent.img_url}
           />
         </Grid>
         {category.map((report: any, index: any) => (
@@ -28,9 +26,7 @@ export default function News({ category, headContent }: any) {
               description={report.description}
               title={report.title}
               id={report.id}
-              image={
-                'https://c1.wallpaperflare.com/preview/554/370/505/bird-bluebird-bird-png-nature-perched-spring.jpg'
-              }
+              image={report.img_url}
             />
           </Grid>
         ))}
