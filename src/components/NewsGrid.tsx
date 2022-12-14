@@ -16,9 +16,7 @@ export default function News({ category, headContent }: any) {
             description={headContent?.description}
             position={'auto'}
             id={'head-article'}
-            image={
-              'https://thumbs.dreamstime.com/b/chalk-board-sketch-loudspeaker-phrase-important-news-144457132.jpg'
-            }
+            image={headContent.img_url}
           />
         </Grid>
         {category.map((report: any, index: any) => (

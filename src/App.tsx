@@ -21,7 +21,7 @@ function App() {
     setIsLoading(true);
     getArticlesData(controller)
       .then((response) => {
-        const [, ...rest] = response.data;
+        const rest = response.data.filter((e: any) => e.id != 0);
         setArticles(rest);
         setIsLoading(false);
       })
@@ -36,7 +36,7 @@ function App() {
 
   const getHeadArticle = useCallback((controller: any) => {
     getArticlesData(controller)
-      .then((response) => setHeadArticle(response.data.shift()))
+      .then((response) => setHeadArticle(response.data.find((x: any) => x.id == 0)))
       .catch((err) => {
         if (err.code == 'ERR_CANCELED') console.log(err);
         else {
@@ -61,7 +61,8 @@ function App() {
       controller.abort();
     };
   }, [getHeadArticle]);
-
+  // console.log(articles);
+  console.log(headArticle);
   if (!status.status) {
     return <Error code={status.code} />;
   } else {
