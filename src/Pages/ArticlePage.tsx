@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import MainNavBar from '../components/NavBar';
 import { useParams } from 'react-router-dom';
 import Footer from '../components/Footer';
@@ -6,14 +6,25 @@ import CardMedia from '@mui/material/CardMedia';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import Comments from '../components/Comments';
-import { postComment } from '../Services/Services';
+import { getCommentData, postComment } from '../Services/Services';
 
 function ArticlePage({ article }: any) {
   const { id } = useParams();
   const content = article.find((item: any) => item.id.toString() == id);
-  const reversed = content?.comments;
+  const [comments, setComments] = useState<any[]>([]);
 
-  const [comments, setComments] = useState(reversed);
+  const getComments = useCallback((controller: any) => {
+    getCommentData(controller, id).then((response) => setComments(response.data));
+  }, []);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    getComments(controller);
+    return () => {
+      controller.abort();
+    };
+  }, [getComments]);
+
   const handleComments = (props: string, ctime: string) => {
     if (props != '') {
       const newComment = {
@@ -25,6 +36,8 @@ function ArticlePage({ article }: any) {
       postComment(newComment);
     }
   };
+
+  // console.log(comments);
 
   if (!content) return null;
   return (

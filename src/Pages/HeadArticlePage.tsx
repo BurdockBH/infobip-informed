@@ -1,16 +1,27 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import MainNavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Comments from '../components/Comments';
-import { postComment } from '../Services/Services';
+import { getCommentData, postComment } from '../Services/Services';
 
 function HeadArticlePage({ headArticle }: any) {
-  const reversed = headArticle?.comments;
+  const [comments, setComments] = useState<any[]>([]);
 
-  const [comments, setComments] = useState(reversed);
+  const getComments = useCallback((controller: any) => {
+    getCommentData(controller, 0).then((response) => setComments(response.data));
+  }, []);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    getComments(controller);
+    return () => {
+      controller.abort();
+    };
+  }, [getComments]);
+
   const handleComments = (props: string, ctime: string) => {
     if (props != '') {
       const newComment = {
