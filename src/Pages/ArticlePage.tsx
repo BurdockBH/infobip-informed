@@ -16,6 +16,7 @@ function ArticlePage({ article }: any) {
     if (props != '') setComments([{ id: '0', content: props, currentTime: time }, ...comments]);
   };
 
+  if (!content) return null;
   return (
     <div className='App'>
       <MainNavBar />

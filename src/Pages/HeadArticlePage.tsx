@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import MainNavBar from '../components/NavBar';
 import Footer from '../components/Footer';
-
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';

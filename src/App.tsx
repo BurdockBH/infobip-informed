@@ -82,8 +82,6 @@ function App() {
     };
   }, [getHeadArticle]);
 
-  console.log(articles);
-
   if (!status.status) {
     return <Error code={status.code} />;
   } else {

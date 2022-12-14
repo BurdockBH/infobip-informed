@@ -11,3 +11,7 @@ export const getCategoriesData = (controller: any) => {
 export const getHeadArticleData = (controller: any) => {
   return axios.get('http://localhost:8000/head-article', { signal: controller.signal });
 };
+
+export const postComment = () => {
+  return axios.post('http://localhost:8000/comment');
+};
