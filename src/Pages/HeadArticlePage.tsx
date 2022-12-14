@@ -14,7 +14,6 @@ function HeadArticlePage({ headArticle }: any) {
   const handleComments = (props: string, ctime: string) => {
     if (props != '') {
       const newComment = {
-        id: comments.length + 1,
         content: props,
         time: ctime,
         article_id: 0,
