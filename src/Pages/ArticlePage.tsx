@@ -37,8 +37,6 @@ function ArticlePage({ article }: any) {
     }
   };
 
-  // console.log(comments);
-
   if (!content) return null;
   return (
     <div className='App'>
