@@ -15,8 +15,6 @@ function App() {
   const [articles, setArticles] = React.useState([]);
   const [headArticle, setHeadArticle] = React.useState<any>('');
 
-  //Axios .catch, both the res and err objects are the same as with the async/await syntax.
-
   const getArticles = useCallback((controller: any) => {
     setIsLoading(true);
     getArticlesData(controller)
@@ -31,6 +29,9 @@ function App() {
           console.log(err);
           setStatus({ status: false, code: err.code });
         }
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, []);
 
@@ -61,8 +62,7 @@ function App() {
       controller.abort();
     };
   }, [getHeadArticle]);
-  // console.log(articles);
-  console.log(headArticle);
+
   if (!status.status) {
     return <Error code={status.code} />;
   } else {
