@@ -24,9 +24,7 @@ function App() {
         setIsLoading(false);
       })
       .catch((err) => {
-        if (err.code == 'ERR_CANCELED') console.log(err);
-        else {
-          console.log(err);
+        if (err.code != 'ERR_CANCELED') {
           setStatus({ status: false, code: err.code });
         }
       })
@@ -39,9 +37,7 @@ function App() {
     getArticlesData(controller)
       .then((response) => setHeadArticle(response.data.find((x: any) => x.id == 0)))
       .catch((err) => {
-        if (err.code == 'ERR_CANCELED') console.log(err);
-        else {
-          console.log(err);
+        if (err.code != 'ERR_CANCELED') {
           setStatus({ status: false, code: err.code });
         }
       });
