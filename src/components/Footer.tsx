@@ -6,7 +6,9 @@ export default function Footer() {
   return (
     <div className='footer'>
       <Typography sx={{ 'text-align': 'center' }} variant='body1'>
-        My Footer can be found here.
+        <Link href='/contact-form' color='inherit'>
+          Contact us
+        </Link>
       </Typography>
       <Typography sx={{ 'text-align': 'center' }} variant='body2' color='text.secondary'>
         {'Copyright © '}

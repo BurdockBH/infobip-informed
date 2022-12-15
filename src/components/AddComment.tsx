@@ -10,7 +10,6 @@ export default function AddComment({ handleComments }: any) {
         sx={{
           width: '82.3%',
           background: 'white',
-          'background-color': 'white',
         }}
         id='outlined-basic'
         label='Add Comment'

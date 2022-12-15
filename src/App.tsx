@@ -8,6 +8,7 @@ import Error from './Pages/Error404';
 import { getArticlesData } from './Services/Services';
 import LoadingSpinner from './components/LoadingSpinner';
 import { categories } from './const/const';
+import ContactPage from './Pages/ContactPage';
 
 function App() {
   const [status, setStatus] = React.useState({ status: true, code: '' });
@@ -81,6 +82,7 @@ function App() {
                 path='/article/head-article'
                 element={<HeadArticle headArticle={headArticle} />}
               />
+              <Route path='/contact-form' element={<ContactPage />} />
             </Routes>
           </BrowserRouter>
         )}
