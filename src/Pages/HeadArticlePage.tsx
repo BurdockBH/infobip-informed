@@ -57,10 +57,7 @@ function HeadArticlePage({ headArticle }: any) {
       </Card>
       <br />
       <Typography width='70%' sx={{ margin: 'auto' }}>
-        {headArticle?.text + headArticle?.text}
-        <br />
-        <br />
-        {headArticle?.text + headArticle?.text}
+        {headArticle?.text}
       </Typography>
       <br />
       <br />

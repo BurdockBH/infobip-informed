@@ -8,4 +8,4 @@ export const THEME = createTheme({
   },
 });
 
-export const categories = ['Sports', 'Technology'];
+export const categories = ['Sports', 'Technology', 'World'];

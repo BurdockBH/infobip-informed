@@ -58,11 +58,8 @@ function ArticlePage({ article }: any) {
         </div>
       </Card>
       <br />
-      <Typography width='70%' sx={{ margin: 'auto' }}>
-        {content?.text + content?.text}
-        <br />
-        <br />
-        {content?.text + content?.text}
+      <Typography width='75%' sx={{ margin: 'auto', 'font-size': '18px', 'text-align': 'justify' }}>
+        {content?.text}
       </Typography>
       <br />
       <br />
