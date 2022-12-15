@@ -10,18 +10,18 @@ function Contact() {
   const [emailError, setEmailError] = useState({ status: false, message: '' });
   const [nameError, setNameError] = useState({ status: false, message: '' });
   const [messageError, setMessageError] = useState({ status: false, message: '' });
-
+  const [emailJSstatus, setEmailJSstatus] = useState(true);
   const [open, setOpen] = React.useState(false);
 
   const sendEmail = () => {
-    emailjs.send('service_qrbh14g', 'template_c0k8lg6', formData, 'Vnvo3cIQ2XdfDEPob').then(
-      (result) => {
-        console.log(result.text);
-      },
-      (error) => {
-        console.log(error.text);
-      },
-    );
+    emailjs
+      .send('service_qrbh14g', 'template_c0k8lg6', formData, 'Vnvo3cIQ2XdfDEPob')
+      .then(() => {
+        setEmailJSstatus(true);
+      })
+      .catch(() => {
+        setEmailJSstatus(false);
+      });
   };
 
   const handleClickOpen = () => {
@@ -102,7 +102,6 @@ function Contact() {
             width: '30%',
           }}
           onClick={() => {
-            console.log(emailError);
             if (
               !nameError.status &&
               !emailError.status &&
@@ -122,7 +121,7 @@ function Contact() {
         </Button>
       </div>
 
-      <AlertDialog open={open} handleClose={handleClose} />
+      <AlertDialog status={emailJSstatus} open={open} handleClose={handleClose} />
       <Footer />
     </div>
   );

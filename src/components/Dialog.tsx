@@ -4,7 +4,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 
-function AlertDialog({ open, handleClose }: any) {
+function AlertDialog({ open, handleClose, status }: any) {
   return (
     <div>
       <Dialog
@@ -13,7 +13,11 @@ function AlertDialog({ open, handleClose }: any) {
         aria-labelledby='alert-dialog-title'
         aria-describedby='alert-dialog-description'
       >
-        <DialogTitle id='alert-dialog-title'>{'Message sent successfully!'}</DialogTitle>
+        {status && (
+          <DialogTitle id='alert-dialog-title'>{'Message sent successfully!'}</DialogTitle>
+        )}
+        {!status && <DialogTitle id='alert-dialog-title'>{'Message sending failed!'}</DialogTitle>}
+
         <DialogActions>
           <Button onClick={handleClose} href='http://localhost:3000/' color='success'>
             HOME PAGE
