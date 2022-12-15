@@ -81,3 +81,11 @@ and (orientation: portrait) {
     font-size: 42px;
     text-shadow: 1px 1px black;
 }
+
+.share-buttons{
+    margin-left: 78%;
+}
+
+.comments-button{
+    margin:auto;
+}
