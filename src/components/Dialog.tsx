@@ -14,7 +14,6 @@ function AlertDialog({ open, handleClose }: any) {
         aria-describedby='alert-dialog-description'
       >
         <DialogTitle id='alert-dialog-title'>{'Message sent successfully!'}</DialogTitle>
-
         <DialogActions>
           <Button onClick={handleClose} href='http://localhost:3000/' color='success'>
             HOME PAGE
