@@ -67,4 +67,17 @@ and (orientation: portrait) {
     width: 80%;
     margin-left: 10%;
     margin-bottom: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border: 5px solid transparent;
+    border-radius: 15px;
+    background-color: white;
+}
+
+.contact-title{
+    margin: auto;
+    margin-bottom: 5%;
+    font-family: sans;
+    font-size: 42px;
+    text-shadow: 1px 1px black;
 }

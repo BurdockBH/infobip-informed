@@ -40,9 +40,9 @@ function Contact() {
     <div className='App'>
       <MainNavBar />
       <div className='contact-form'>
+        <h1 className='contact-title'>Send us something interesting</h1>
         <TextField
-          FormHelperTextProps={{ style: { backgroundColor: 'rgb(238,238,238)', margin: '0' } }}
-          sx={{ background: 'white', width: '50%', margin: 'auto' }}
+          sx={{ background: 'white', width: '80%', margin: 'auto' }}
           id='outlined-basic'
           label='Name'
           multiline={true}
@@ -59,8 +59,7 @@ function Contact() {
         <br />
         <br />
         <TextField
-          FormHelperTextProps={{ style: { backgroundColor: 'rgb(238,238,238)', margin: '0' } }}
-          sx={{ background: 'white', width: '50%', margin: 'auto' }}
+          sx={{ background: 'white', width: '80%', margin: 'auto' }}
           id='outlined-basic'
           label='E-mail'
           multiline={true}
@@ -77,8 +76,13 @@ function Contact() {
         <br />
         <br />
         <TextField
-          FormHelperTextProps={{ style: { backgroundColor: 'rgb(238,238,238)', margin: '0' } }}
-          sx={{ background: 'white', width: '80%', margin: 'auto' }}
+          inputProps={{
+            style: {
+              height: '250px',
+            },
+          }}
+          sx={{ background: 'white', width: '80%', margin: 'auto', 'margin-bottom': '5%' }}
+          size='small'
           id='outlined-basic'
           label='Message'
           multiline={true}
@@ -92,26 +96,25 @@ function Contact() {
             setFormData({ ...formData, message: event.target.value });
           }}
         />
+        <Button
+          sx={{
+            margin: 'auto',
+            width: '30%',
+          }}
+          onClick={() => {
+            console.log(emailError);
+            if (!nameError.status && !emailError.status && !messageError.status) {
+              sendEmail();
+              setFormData({ name: '', email: '', message: '' });
+              handleClickOpen();
+            }
+          }}
+          variant='contained'
+        >
+          Send
+        </Button>
       </div>
-      <Button
-        sx={{
-          'margin-bottom': '10%',
-          'margin-left': '45%',
-          'margin-right': '45%',
-          width: '-webkit-fill-available',
-        }}
-        onClick={() => {
-          console.log(emailError);
-          if (!nameError.status && !emailError.status && !messageError.status) {
-            sendEmail();
-            setFormData({ name: '', email: '', message: '' });
-            handleClickOpen();
-          }
-        }}
-        variant='contained'
-      >
-        Send
-      </Button>
+
       <AlertDialog open={open} handleClose={handleClose} />
       <Footer />
     </div>
