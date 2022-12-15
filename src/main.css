@@ -62,11 +62,11 @@ and (orientation: portrait) {
 }
 
 .contact-form{
+    margin: auto;
     margin-top: 10%;
-    display:grid;
-    width: 80%;
-    margin-left: 10%;
     margin-bottom: 5%;
+    display:grid;
+    width: 70%;
     padding-top: 2%;
     padding-bottom: 2%;
     border: 5px solid transparent;
