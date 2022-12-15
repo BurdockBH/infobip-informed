@@ -103,7 +103,14 @@ function Contact() {
           }}
           onClick={() => {
             console.log(emailError);
-            if (!nameError.status && !emailError.status && !messageError.status) {
+            if (
+              !nameError.status &&
+              !emailError.status &&
+              !messageError.status &&
+              formData.name != '' &&
+              formData.email != '' &&
+              formData.message != ''
+            ) {
               sendEmail();
               setFormData({ name: '', email: '', message: '' });
               handleClickOpen();
