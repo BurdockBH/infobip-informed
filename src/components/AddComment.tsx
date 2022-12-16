@@ -20,6 +20,7 @@ export default function AddComment({ handleComments }: any) {
         }}
       />
       <Button
+        variant='contained'
         sx={{ display: 'block' }}
         onClick={() => {
           const DATE = new Date();

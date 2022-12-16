@@ -6,9 +6,12 @@ import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Comments from '../components/Comments';
 import { getCommentData, postComment } from '../Services/Services';
+import { Button } from '@mui/material';
+import Box from '@mui/material/Box';
 
 function HeadArticlePage({ headArticle }: any) {
   const [comments, setComments] = useState<any[]>([]);
+  const [showComments, setShowComments] = useState({ status: 'Show Comments', display: 'none' });
 
   const getComments = useCallback((controller: any) => {
     getCommentData(controller, 0).then((response) => setComments(response.data));
@@ -32,6 +35,13 @@ function HeadArticlePage({ headArticle }: any) {
       setComments([...comments, newComment]);
       postComment(newComment);
     }
+  };
+
+  const handleShowComments = () => {
+    const commentShow = showComments.status == 'Show Comments' ? 'Hide Comments' : 'Show Comments';
+    const commentDisplay = showComments.display == 'flex' ? 'none' : 'flex';
+
+    setShowComments({ status: commentShow, display: commentDisplay });
   };
 
   return (
@@ -61,7 +71,16 @@ function HeadArticlePage({ headArticle }: any) {
       </Typography>
       <br />
       <br />
-      <Comments handleComments={handleComments} comments={comments} />
+      <Box textAlign='center' sx={{ 'margin-bottom': '5%' }}>
+        <Button variant='contained' onClick={() => handleShowComments()}>
+          {showComments.status}
+        </Button>
+      </Box>
+      <Comments
+        display={showComments.display}
+        handleComments={handleComments}
+        comments={comments}
+      />
       <Footer />
     </div>
   );
