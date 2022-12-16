@@ -27,10 +27,8 @@ function App() {
       .catch((err) => {
         if (err.code != 'ERR_CANCELED') {
           setStatus({ status: false, code: err.code });
+          setIsLoading(false);
         }
-      })
-      .finally(() => {
-        setIsLoading(false);
       });
   }, []);
 
