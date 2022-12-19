@@ -8,6 +8,14 @@ import Comments from '../components/Comments';
 import { getCommentData, postComment } from '../Services/Services';
 import { Button } from '@mui/material';
 import Box from '@mui/material/Box';
+import {
+  EmailIcon,
+  EmailShareButton,
+  FacebookIcon,
+  FacebookShareButton,
+  TwitterIcon,
+  TwitterShareButton,
+} from 'react-share';
 
 function HeadArticlePage({ headArticle }: any) {
   const [comments, setComments] = useState<any[]>([]);
@@ -58,13 +66,33 @@ function HeadArticlePage({ headArticle }: any) {
               'object-position': 'top',
             }}
           />
-          <div className='article-title'>
-            <Typography sx={{ 'padding-bottom': '-5px' }} variant='h1'>
-              {headArticle?.title}
-            </Typography>
-          </div>
         </div>
       </Card>
+      <div className='article-share-title'>
+        <div className='article-title'>
+          <Typography variant='h1'>{headArticle?.title}</Typography>
+        </div>
+        <div className='share-buttons'>
+          <FacebookShareButton
+            url={`http://localhost:3000/article/head-article`}
+            title={headArticle?.title}
+          >
+            <FacebookIcon size={50} round />
+          </FacebookShareButton>
+          <EmailShareButton
+            url={`http://localhost:3000/article/head-article`}
+            title={headArticle?.title}
+          >
+            <EmailIcon size={50} round />
+          </EmailShareButton>
+          <TwitterShareButton
+            url={`http://localhost:3000/article/$head-article`}
+            title={headArticle?.title}
+          >
+            <TwitterIcon size={50} round />
+          </TwitterShareButton>
+        </div>
+      </div>
       <br />
       <Typography width='75%' sx={{ margin: 'auto', 'font-size': '18px', 'text-align': 'justify' }}>
         {headArticle?.text}

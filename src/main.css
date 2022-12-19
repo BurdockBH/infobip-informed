@@ -2,12 +2,8 @@ html{
     background-color: rgb(238,238,238);
 }
 
-.article-title{
-    position: absolute;
-    color: white;
-    top: 180px;
-    left: 35%;
-    transform: translateX(-50%);
+.article-title {
+    display: inline;
 }
 
 .nav-img{
@@ -83,7 +79,13 @@ and (orientation: portrait) {
 }
 
 .share-buttons{
-    margin-left: 78%;
+    margin-left: 45%;
+    margin-top: 2%;
+}
+
+.article-share-title{
+    display:flex;
+    margin-left: 12%;
 }
 
 .comments-button{

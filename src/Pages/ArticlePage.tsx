@@ -70,22 +70,24 @@ function ArticlePage({ article }: any) {
               'object-position': 'center',
             }}
           />
-          <div className='article-title'>
-            <Typography variant='h1'>{content?.title}</Typography>
-          </div>
         </div>
       </Card>
       <br />
-      <div className='share-buttons'>
-        <FacebookShareButton url={`http://localhost:3000/article/${id}`} title={'titles'}>
-          <FacebookIcon size={50} round />
-        </FacebookShareButton>
-        <EmailShareButton url={`http://localhost:3000/article/${id}`} title={'titles'}>
-          <EmailIcon size={50} round />
-        </EmailShareButton>
-        <TwitterShareButton url={`http://localhost:3000/article/${id}`} title={'titles'}>
-          <TwitterIcon size={50} round />
-        </TwitterShareButton>
+      <div className='article-share-title'>
+        <div className='article-title'>
+          <Typography variant='h1'>{content?.title}</Typography>
+        </div>
+        <div className='share-buttons'>
+          <FacebookShareButton url={`http://localhost:3000/article/${id}`} title={content?.title}>
+            <FacebookIcon size={50} round />
+          </FacebookShareButton>
+          <EmailShareButton url={`http://localhost:3000/article/${id}`} title={content?.title}>
+            <EmailIcon size={50} round />
+          </EmailShareButton>
+          <TwitterShareButton url={`http://localhost:3000/article/${id}`} title={content?.title}>
+            <TwitterIcon size={50} round />
+          </TwitterShareButton>
+        </div>
       </div>
       <br />
       <Typography width='75%' sx={{ margin: 'auto', 'font-size': '18px', 'text-align': 'justify' }}>
