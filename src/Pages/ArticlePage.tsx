@@ -17,6 +17,7 @@ import {
 } from 'react-share';
 import { Button } from '@mui/material';
 import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 
 function ArticlePage({ article }: any) {
   const { id } = useParams();
@@ -70,23 +71,29 @@ function ArticlePage({ article }: any) {
               'object-position': 'center',
             }}
           />
-          <div className='article-title'>
-            <Typography variant='h1'>{content?.title}</Typography>
-          </div>
         </div>
       </Card>
       <br />
-      <div className='share-buttons'>
-        <FacebookShareButton url={`http://localhost:3000/article/${id}`} title={'titles'}>
-          <FacebookIcon size={50} round />
-        </FacebookShareButton>
-        <EmailShareButton url={`http://localhost:3000/article/${id}`} title={'titles'}>
-          <EmailIcon size={50} round />
-        </EmailShareButton>
-        <TwitterShareButton url={`http://localhost:3000/article/${id}`} title={'titles'}>
-          <TwitterIcon size={50} round />
-        </TwitterShareButton>
-      </div>
+      <Grid container spacing={2} className='article-share-title'>
+        <Grid item lg={6}>
+          <Typography sx={{ 'margin-left': '25%' }} variant='h1'>
+            {content?.title}
+          </Typography>
+        </Grid>
+        <Grid item lg={6}>
+          <div className='share-buttons'>
+            <FacebookShareButton url={`http://localhost:3000/article/${id}`} title={content?.title}>
+              <FacebookIcon size={50} round />
+            </FacebookShareButton>
+            <EmailShareButton url={`http://localhost:3000/article/${id}`} title={content?.title}>
+              <EmailIcon size={50} round />
+            </EmailShareButton>
+            <TwitterShareButton url={`http://localhost:3000/article/${id}`} title={content?.title}>
+              <TwitterIcon size={50} round />
+            </TwitterShareButton>
+          </div>
+        </Grid>
+      </Grid>
       <br />
       <Typography width='75%' sx={{ margin: 'auto', 'font-size': '18px', 'text-align': 'justify' }}>
         {content?.text}
