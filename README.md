@@ -8,7 +8,7 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Requiers back-end from https://github.com/BurdockBH/infobip-informed-backend to be functional.
+Requires back-end from https://github.com/BurdockBH/infobip-informed-backend to be functional.
 
 ![image](https://user-images.githubusercontent.com/77117724/208146232-bcad6a7c-37fd-4742-a9db-8c0ca483278f.png)
 ![image](https://user-images.githubusercontent.com/77117724/208146244-fd75be3e-de39-437d-928e-234c83ce4079.png)
